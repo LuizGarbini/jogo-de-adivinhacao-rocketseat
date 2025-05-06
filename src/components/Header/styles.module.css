@@ -1,0 +1,6 @@
+.container {
+}
+
+.container > img {
+  height: 3.75rem;
+}
