@@ -14,7 +14,13 @@ function App() {
 			<main>
 				<Header current={5} max={10} onRestart={handleRestartGame} />
 				<Tip tip="Uma das linguaguens de programação mais utilizadas" />
-				<Letter value="L" />
+				<div className={styles.word}>
+					<Letter value="R" />
+					<Letter value="E" />
+					<Letter value="A" />
+					<Letter value="C" />
+					<Letter value="T" />
+				</div>
 			</main>
 		</div>
 	);
