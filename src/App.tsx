@@ -12,7 +12,6 @@ import { Tip } from "./components/Tip";
 
 export function App() {
 	const [score, setScore] = useState(0);
-	const [attempts, setAttempts] = useState(0);
 	const [letter, setLetter] = useState("");
 	const [lettersUsed, setLettersUsed] = useState<LettersUsedProps[]>([]);
 	const [challenge, setChallenge] = useState<Challenge | null>(null);
@@ -27,8 +26,9 @@ export function App() {
 
 		setChallenge(randomWord);
 
-		setAttempts(0);
+		setScore(0);
 		setLetter("");
+		setLettersUsed([]);
 	}
 
 	function handleConfirm() {
@@ -75,13 +75,23 @@ export function App() {
 	return (
 		<div className={styles.container}>
 			<main>
-				<Header current={attempts} max={10} onRestart={handleRestartGame} />
+				<Header current={score} max={10} onRestart={handleRestartGame} />
 				<Tip tip={challenge.tip} />
 				<div className={styles.word}>
-					{challenge.word.split("").map(() => (
-						// biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
-						<Letter value="" />
-					))}
+					{challenge.word.split("").map((letter, index) => {
+						const letterUsed = lettersUsed.find(
+							(used) => used.value.toLocaleUpperCase() === letter.toUpperCase(),
+						);
+
+						return (
+							<Letter
+								value={letterUsed?.value}
+								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+								key={index}
+								color={letterUsed?.correct ? "correct" : "default"}
+							/>
+						);
+					})}
 				</div>
 
 				<h4>Palpite</h4>
