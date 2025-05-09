@@ -18,7 +18,6 @@ export function LettersUsed({ data }: Props) {
 
 			<div>
 				{data.map(({ value, correct }) => (
-					// biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
 					<Letter
 						key={value}
 						value={value}
