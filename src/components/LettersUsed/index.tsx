@@ -4,7 +4,7 @@ import { Letter } from "../Letter";
 
 export type LettersUsedProps = {
 	value: string;
-	coorect: boolean;
+	correct: boolean;
 };
 
 type Props = {
@@ -18,6 +18,7 @@ export function LettersUsed({ data }: Props) {
 
 			<div>
 				{data.map(({ value, correct }) => (
+					// biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
 					<Letter
 						value={value}
 						size="small"
