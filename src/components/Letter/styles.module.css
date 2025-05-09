@@ -21,5 +21,18 @@
   border-radius: 0.43rem;
 
   font-size: 1.25rem;
-  font-weight: 1px solid #6363db;
+  font-weight: 500;
+  border: 1px solid #6363db;
+}
+
+.letterCorrect {
+  background-color: #e1f5ec;
+  border-color: #03ab4f;
+  color: #03ab4f;
+}
+
+.letterWrong {
+  background-color: #ffcf62;
+  border-color: #691b0a;
+  color: #691b0a;
 }
